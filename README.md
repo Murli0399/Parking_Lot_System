@@ -10,6 +10,11 @@ This console-based parking lot application allows users to manage a parking lot 
 - Check the availability of vehicle spaces on a specific floor for a given vehicle type.
 - Configurable cost strategy for parking, supporting different currencies.
 
+## Tech Stack
+
+- JAVA
+
+
 ## Getting Started
 
 Follow the steps below to set up and run the parking lot application:
@@ -19,3 +24,20 @@ Follow the steps below to set up and run the parking lot application:
    ```bash
    git clone https://github.com/your-username/parking-lot.git
    cd parking-lot
+
+
+## 🔗 Contact Me
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://murli0399.github.io/)
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/murli-khaire/)
+
+
+## Authors
+
+- [Murli Khaire](https://github.com/Murli0399)
+
+
+## Acknowledgements
+
+- [Masai School](https://www.masaischool.com/)
