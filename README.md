@@ -22,8 +22,7 @@ Follow the steps below to set up and run the parking lot application:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/parking-lot.git
-   cd parking-lot
+   git clone https://github.com/Murli0399/Parking_Lot_System.git
 
 
 ## 🔗 Contact Me
