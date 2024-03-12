@@ -1,8 +1,12 @@
 package com.murli.model;
 
+import com.murli.enums.VehicleType;
+import com.murli.exceptions.ParkingLotException;
+import com.murli.interfaces.FloorInter;
+
 import java.util.*;
 
-public class Floor {
+public class Floor implements FloorInter {
     private int floorNumber; // Floor number identifier
     private Map<VehicleType, List<VehicleSpace>> vehicleSpaces; // Map to store vehicle spaces by type
 
@@ -22,11 +26,16 @@ public class Floor {
     }
 
     // Method to get available parking spaces for a specific vehicle type
+    @Override
     public List<VehicleSpace> getAvailableSpaces(VehicleType type) {
+        if (!vehicleSpaces.containsKey(type)) {
+            throw new ParkingLotException("Invalid vehicle type: " + type);
+        }
         return vehicleSpaces.get(type).stream().filter(VehicleSpace::isAvailable).toList();
     }
 
     // Method to park a vehicle in an available space of the specified type
+    @Override
     public boolean parkVehicle(Vehicle vehicle) {
         List<VehicleSpace> spaces = getAvailableSpaces(vehicle.getType());
         if (!spaces.isEmpty()) {
@@ -38,6 +47,7 @@ public class Floor {
     }
 
     // Method to remove a vehicle from the floor based on registration number
+    @Override
     public VehicleType removeVehicle(String registrationNumber) {
         for (List<VehicleSpace> spaces : vehicleSpaces.values()) {
             for (VehicleSpace space : spaces) {
@@ -48,7 +58,7 @@ public class Floor {
                 }
             }
         }
-        return VehicleType.DUMMY; // Return DUMMY type if the vehicle is not found
+        return VehicleType.DUMMY;
     }
 }
 

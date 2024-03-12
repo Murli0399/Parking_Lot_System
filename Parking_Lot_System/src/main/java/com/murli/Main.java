@@ -1,6 +1,10 @@
 package com.murli;
 
-import com.murli.model.*;
+import com.murli.enums.Currency;
+import com.murli.enums.VehicleType;
+import com.murli.model.CostStrategy;
+import com.murli.model.ParkingLot;
+import com.murli.model.Vehicle;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -62,12 +66,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         // Setting up hourly parking rates for each vehicle type in INR
         Map<VehicleType, Double> hourlyRates = new HashMap<>();
         hourlyRates.put(VehicleType.BIKE, 10.0);
         hourlyRates.put(VehicleType.CAR, 20.0);
-        hourlyRates.put(VehicleType.SPORTS_CAR, 30.0);
         hourlyRates.put(VehicleType.TRUCK, 40.0);
         hourlyRates.put(VehicleType.BUS, 50.0);
 
@@ -76,6 +78,8 @@ public class Main {
 
         // Initializing the parking lot with 2 floors and 2 vehicle spaces per floor for each vehicle type
         ParkingLot parkingLot = new ParkingLot(2, 2, costStrategy);
+
+        System.out.println("Welcome to Our Parking Lot System");
 
         // Creating a Scanner object to take user input
         Scanner sc = new Scanner(System.in);
@@ -107,4 +111,5 @@ public class Main {
 
         sc.close();
     }
+
 }

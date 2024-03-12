@@ -1,6 +1,9 @@
 package com.murli.model;
 
-public class VehicleSpace {
+import com.murli.enums.VehicleType;
+import com.murli.interfaces.VehicleSpaceInter;
+
+public class VehicleSpace implements VehicleSpaceInter {
     private int spaceNumber;
     private boolean available;
     private VehicleType type;
@@ -13,22 +16,6 @@ public class VehicleSpace {
         this.type = type;
     }
 
-    // Method to park a vehicle in the space
-    public void parkVehicle(Vehicle vehicle) {
-        this.available = false; // The space is now occupied
-        this.parkedVehicle = vehicle; // Set the parked vehicle reference
-    }
-
-    // Method to remove a vehicle from the space
-    public void removeVehicle() {
-        this.available = true; // The space is now available
-        this.parkedVehicle = null; // Clear the parked vehicle reference
-    }
-
-    // Method to check if the space is available
-    public boolean isAvailable() {
-        return available;
-    }
 
     // Getter method to retrieve the type of vehicle the space is designed for
     public VehicleType getType() {
@@ -38,6 +25,28 @@ public class VehicleSpace {
     // Getter method to retrieve the reference to the parked vehicle
     public Vehicle getParkedVehicle() {
         return parkedVehicle;
+    }
+
+
+
+    // Method to park a vehicle in the space
+    @Override
+    public void parkVehicle(Vehicle vehicle) {
+        this.available = false; // The space is now occupied
+        this.parkedVehicle = vehicle; // Set the parked vehicle reference
+    }
+
+    // Method to remove a vehicle from the space
+    @Override
+    public void removeVehicle() {
+        this.available = true; // The space is now available
+        this.parkedVehicle = null; // Clear the parked vehicle reference
+    }
+
+    // Method to check if the space is available
+    @Override
+    public boolean isAvailable() {
+        return available;
     }
 }
 

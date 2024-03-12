@@ -1,6 +1,8 @@
 package com.murli;
 
 
+import com.murli.enums.Currency;
+import com.murli.enums.VehicleType;
 import com.murli.model.*;
 
 import java.util.Map;
@@ -39,7 +41,6 @@ public class ParkingAppTest {
         return new CostStrategy(Map.of(
                 VehicleType.BIKE, 10.0,
                 VehicleType.CAR, 20.0,
-                VehicleType.SPORTS_CAR, 30.0,
                 VehicleType.TRUCK, 40.0,
                 VehicleType.BUS, 50.0
         ), Currency.INR);

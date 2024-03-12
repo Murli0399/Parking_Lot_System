@@ -1,6 +1,11 @@
 package com.murli.model;
+import com.murli.enums.Currency;
+import com.murli.enums.VehicleType;
+import com.murli.exceptions.ParkingLotException;
+import com.murli.interfaces.ParkingLotInter;
+
 import java.util.*;
-public class ParkingLot {
+public class ParkingLot implements ParkingLotInter {
     private Map<Integer, Floor> floors; // Map to store floors in the parking lot
     private CostStrategy costStrategy; // Strategy for calculating parking fees
 
@@ -20,6 +25,7 @@ public class ParkingLot {
     }
 
     // Method to add a vehicle to the parking lot
+    @Override
     public String addVehicle(Vehicle vehicle) {
         // Iterate through floors to find available space
         for (Floor floor : floors.values()) {
@@ -31,6 +37,7 @@ public class ParkingLot {
     }
 
     // Method to remove a vehicle from the parking lot
+    @Override
     public String removeVehicle(String registrationNumber, int hoursParked) {
         // Iterate through floors to find and remove the vehicle
         for (Floor floor : floors.values()) {

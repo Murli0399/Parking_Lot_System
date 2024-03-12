@@ -1,8 +1,13 @@
 package com.murli.model;
 
+import com.murli.enums.Currency;
+import com.murli.enums.VehicleType;
+import com.murli.exceptions.ParkingLotException;
+import com.murli.interfaces.CostStrategyInter;
+
 import java.util.Map;
 
-public class CostStrategy {
+public class CostStrategy implements CostStrategyInter {
     private Map<VehicleType, Double> hourlyRates; // Hourly rates for different vehicle types
     private Currency currency; // Currency used for fee representation
 
@@ -13,7 +18,11 @@ public class CostStrategy {
     }
 
     // Method to calculate the parking fee for a given vehicle type and hours parked
-    public double calculateFee(VehicleType type, int hours) {
+    @Override
+    public double calculateFee(VehicleType type, int hours) throws ParkingLotException {
+        if (!hourlyRates.containsKey(type)) {
+            throw new ParkingLotException("Hourly rate not defined for vehicle type: " + type);
+        }
         double hourlyRate = hourlyRates.get(type);
         return hourlyRate * hours; // Simple calculation: hourly rate multiplied by hours parked
     }
